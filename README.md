@@ -21,13 +21,16 @@ Moreover, we'll make use of the NLTK library. As usual, more information can be 
 ## `Exercises/labs 📝`
 We'll use the term **labs** because it's cooler than exercises. Here's the table with an overview of the labs and their deadlines:
 
-| Lab | Release date | Deadline | Topic
-| - | - | - | - |
-| Lab 1 | January 13 | January 27 | Corpora and text processing |
-| Lab 2 | January 27 | February 10 |  Tags and tagging |
-| Lab 3 | February 10 | February 24 | Basic text classification |
-| Lab 4 | February 24 | March 10 | Grammars, parsing, embeddings and applications |
-| Lab 5 | March 10 | March 24 | Deep learning and transfer learning
+`THESE ARE TEMPORARY AND ABSOLUTELY NOT FINAL!`
+
+| Lab | Release date | Deadline | Topic | Libraries | Chapters |
+| - | - | - | - | - | - |
+| Lab 1 | January 13 | January 27 | Basic text processing. Word vectors, ... | NLTK | 2, 3 |
+| Lab 2 | January 27 | February 10 | TODO | SpaCy | 4, 5, 6 |
+| Lab 3 | February 10 | February 24 | TODO | Scikit-learn | 7, 8 |
+| Lab 4 | February 24 | March 10 | TODO | Gensim | 9, 10 |
+
+From this point on, the focus will be shifted towards your projects. This will involve machine learning and deep learning techniques, building upon the tasks you've completed in the labs.
 
 The level of difficulty will increase over time, as can be seen from the topics. Some of you will definitely feel the need to get more applications of modern state-of-the-art approaches, but note that you're free to explore anything in the project later in the course!
 
