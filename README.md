@@ -1,7 +1,7 @@
 # `TDT 4310 - Intelligent Text Analytics and Language Understanding`
 
 ##  `Welcome 👋`
-This is a supplementary space for the exercises/lab and is fully obligatory. However, the solutions to exercises and general tips/tricks will be found here.
+This is a supplementary space for the exercises/lab. However, possible solutions to exercises and general tips/tricks will be found here.
 Note that the first lab will posted the first week of the course(specifically **january 13**) alongside the regular lecture, without more than an brief introduction. The week after, **january 20 14:15**, the first lab session takes place in [**H3**](https://link.mazemap.com/xm0ZQ2gt), where you will be able to ask questions and get some help 🙋‍♂️. The very first deadline is **january 27**.
 
 
