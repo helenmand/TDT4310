@@ -9,17 +9,19 @@ server.debug = True
 
 labs = LabRunner()
 
-sample_common_words = ["hi", "hei", "hola"]
-
 def make_prediction(input_text):
     return input_text.split()[-1:]
 
-@server.route('/predictions', methods=['POST'])
+@server.route('/predictions', methods=['GET', 'POST'])
 @cross_origin()
 def predictions():
-    data = flask.request.json.get('data')
-    preds = labs.predict(data)
-    preds = list(preds.values())
+    if flask.request.method == 'GET':
+        return flask.jsonify({'info': 'Server is live'})
+
+    json = flask.request.json
+    data = json.get('data')
+    lab_number = json.get('lab')
+    preds = labs.predict(data, lab_number)
     return flask.jsonify(preds)
 
 server.run()

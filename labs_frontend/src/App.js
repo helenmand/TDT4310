@@ -2,31 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import '@fontsource/roboto/400.css';
 
-import { Button, Box, FormControl, Grid, InputLabel, MenuItem, Select, TextField, IconButton, Dialog } from '@mui/material'
+import { Button, Box, FormControl, Grid, InputLabel, MenuItem, Select, TextField, IconButton, Dialog, CircularProgress } from '@mui/material'
 
 import { ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
+import { fetchPredictions } from './api';
+
 const darkTheme = createTheme({ palette: { mode: 'dark' } });
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 const themes = [lightTheme, darkTheme];
 
-async function fetchPredictions(data, url) {
-  let method = "POST"
-  let body = JSON.stringify({data: data})
-  return fetch(url, {
-    method: method,
-    headers: { "Content-Type": "application/json" },
-    body: body,
-    }).then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        return data;
-      })
-      .catch((err) => console.log(err));
-}
 
 const NUM_LABS = 4
 
@@ -50,7 +38,7 @@ function App() {
     async function getPredictions() {
       try {
         setLoadingWords(true);
-        const words = await fetchPredictions(input, url);
+        const words = await fetchPredictions(input, url, labNumber);
         // check the type of the response, needs to be an array
         if (!Array.isArray(words)) {
           alert("Invalid type of predictions received. Verify the URL:\n" + url)
@@ -71,8 +59,8 @@ function App() {
       if (!isTyping) {
         getPredictions();
       }
-    }, 500);
-  }, [input, isTyping, settingsOpen]);
+    }, 1000);
+  }, [input, isTyping, settingsOpen, url, labNumber]);
 
   useEffect(() => {
     let typingTimer;
@@ -102,68 +90,54 @@ function App() {
       </FormControl>
   )
 
+  const NextWordButton = ({word}) => (
+      <Button
+        onClick={() => setInput(input === '' ? word : input + " " + word)}
+        variant="contained"
+        style={{ textTransform: 'none' }}
+      >
+        {word}
+      </Button>
+  )
+
 
   return (
     <ThemeProvider theme={themes[theme_id]}>
       <CssBaseline />
       <Grid
-        className="App"
-        container
+        className="main"
         direction="column"
         justifyContent="space-between"
-        // alignItems="center"
-        // alignContent="center"
-        style={{
-          height: "90vh",
-        }}
+        style={{ height: "90vh" }}
       >
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          padding={1}
-        >
-        <LabSelector />
-        {loadingWords || predictedWords[labNumber].length === 0 ? (
-          <Grid item sx={{width: 3/4}}>
-            <Button margin={5} fullWidth variant="contained" color="primary" disabled style={{backgroundColor: 'white'}}>
-              No predictions received
-            </Button>
+        <Box padding={1} width={1}>
+          <Grid container justifyContent="space-around" alignItems="center" spacing={1}>
+              {predictedWords.length === 0 ? (
+                <Button disabled>No predictions received</Button>
+              ):(
+                <React.Fragment>
+                  {[...predictedWords].map((_, i) => (
+                    <Grid item key={predictedWords[i] + i}>
+                      <NextWordButton word={predictedWords[i]} />
+                    </Grid>
+                  ))}
+                </React.Fragment>
+              )}
           </Grid>
-        ):(
-          <React.Fragment>
-              {[...predictedWords[labNumber]].map((e, i) => (
-                <Grid item sx={{width: 1/predictedWords.length}} key={predictedWords[labNumber][i] + i}>
-                  <Button
-                    onClick={() => {
-                      const word = predictedWords[labNumber][i]
-                      const text = input === '' ? word : input + " " + word
-                      setInput(text)
-                    }}
-                    margin={2}
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    style={{ textTransform: 'none' }}
-                  >
-                    {predictedWords[labNumber][i]}
-                  </Button>
-                </Grid>
-            ))}
-            </React.Fragment>
-        )}
-        <Box marginTop={2} width={1}>
-          <TextField
-            id="input-field"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            variant='outlined'
-            multiline
-            fullWidth
-          />
+          <Box marginTop={2} width={1}>
+            <TextField
+              id="input-field"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              variant='outlined'
+              multiline
+              fullWidth
+            />
+          </Box>
+          <Box marginTop={2}>
+            <LabSelector/>
+          </Box>
         </Box>
-        </Grid>
 
         <Grid container justifyContent="center">
           <Button sx={{ ml: 1 }} onClick={() => setSettingsOpen(true)} color="inherit">

@@ -12,8 +12,9 @@ class Lab1(LabPredictor):
         - utilize n-grams and probability distribution to predict the next word
         - feel free to add any other features you think might be useful
         """
-        return self.dummy_words
-        # return input_text.split()[-1:]
+        # return self.dummy_words
+        n_items = 4
+        return input_text.split()[-n_items:]
 
     def train(self, train_data=None):
         # We will not be training any model in the first lab!
