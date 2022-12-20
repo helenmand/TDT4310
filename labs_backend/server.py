@@ -9,19 +9,17 @@ server.debug = True
 
 labs = LabRunner()
 
-def make_prediction(input_text):
-    return input_text.split()[-1:]
+@server.route('/')
+def health_check():
+    return "Server is live"
 
-@server.route('/predictions', methods=['GET', 'POST'])
+@server.route('/predictions', methods=['POST'])
 @cross_origin()
 def predictions():
-    if flask.request.method == 'GET':
-        return flask.jsonify({'info': 'Server is live'})
-
-    json = flask.request.json
-    data = json.get('data')
-    lab_number = json.get('lab')
-    preds = labs.predict(data, lab_number)
+    data = flask.request.json
+    text = data.get('text')
+    lab_number = data.get('lab')
+    preds = labs.predict(text, lab_number)
     return flask.jsonify(preds)
 
 server.run()

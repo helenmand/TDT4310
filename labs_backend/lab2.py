@@ -9,3 +9,4 @@ class Lab2(LabPredictor):
 
     def train(self, train_data=None):
         return None
+        

@@ -1,6 +1,6 @@
-export async function fetchPredictions(data, url, labNumber) {
+export async function fetchPredictions(text, url, lab) {
   let method = "POST"
-  let body = JSON.stringify({data: data, lab: labNumber})
+  let body = JSON.stringify({text, lab})
   return fetch(url, {
     method: method,
     headers: { "Content-Type": "application/json" },
