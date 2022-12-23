@@ -62,7 +62,7 @@ function App() {
       if (!isTyping) {
         getPredictions();
       }
-    }, 1000);
+    }, 200);
   }, [input, isTyping, settingsOpen, url, labNumber]);
 
   useEffect(() => {
@@ -164,8 +164,7 @@ function App() {
             <IconButton color="inherit">
               {error ?
                 <WifiTetheringError style={{color: "red"}} />
-                :
-                <WifiTethering style={{color: "limegreen"}} />
+                : <WifiTethering style={{color: "limegreen"}} />
               }
             </IconButton>
           </Tooltip>
