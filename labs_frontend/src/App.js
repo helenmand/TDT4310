@@ -18,10 +18,14 @@ const lightTheme = createTheme({ palette: { mode: 'light' } });
 const themes = [lightTheme, darkTheme];
 
 function handleNextWord(setFunction, inputText, nextWord) {
-  const nospace = ",.!?;:()[]{}\"'”“’‘–—…/\\".split('')
+  const nospace_before = ".,!?;:()[]{}\"'”“’‘-–—…/\\#".split('')
+  const nospace_after = "'-#([/\\"
+  // if the last character typed is an apostrophe or hyphen, don't add a space
+  const lastChar = inputText.slice(-1)
   inputText = inputText.trimEnd()
+
   let space = " "
-  if (nospace.includes(nextWord) || inputText === '') {
+  if (nospace_after.includes(lastChar) || nospace_before.includes(nextWord) || inputText === '') {
     space = ""
   }
   setFunction(`${inputText}${space}${nextWord}`)
@@ -124,7 +128,7 @@ function App() {
         className="main"
         direction="column"
         justifyContent="space-between"
-        style={{ height: "90vh" }}
+        style={{ height: "80vh" }}
       >
         <Box padding={1} width={1}>
           <Grid container justifyContent="space-around" alignItems="center" spacing={1}>
