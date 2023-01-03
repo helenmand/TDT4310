@@ -59,7 +59,7 @@ The frontend application (running on your PC) is also set up to be exposed on yo
 The labs are not graded, but pass/fail. You need to pass all labs to be eligible for the exam. The criteria will be explained further below.
 
 ## `Questions and help 🙋‍♂️`
-Try to keep questions regarding labs to the lab session. We will also allow for questions on Blackboard. Try to explore the Q&A resources we've published from earlier years first [here](https://github.com/tollefj/TDT4310-spring-2023).
+Try to keep questions regarding labs to the lab session. We will also allow for questions on Blackboard. Try to explore the Q&A resources we've published from earlier years first [here](QA.md).
 
 Some info on the libraries used:
 - NLTK has an extensive collection of both explanations and sample usages:
