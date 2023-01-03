@@ -3,5 +3,5 @@ import LabSelector from "./LabSelector";
 
 export {
     NextWordButton,
-    LabSelector
+    LabSelector,
 }
