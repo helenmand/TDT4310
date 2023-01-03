@@ -13,8 +13,7 @@ SERVER_HOST = "0.0.0.0"
 SERVER_PORT = 8080
 
 server.config['CORS_HEADERS'] = 'Content-Type'
-server.config['CORS_ORIGINS'] = [
-    f'http://{FRONTEND_HOST}:{FRONTEND_PORT}']
+server.config['CORS_ORIGINS'] = '*'
 
 lab = LabRunner()
 

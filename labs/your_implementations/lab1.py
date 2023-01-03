@@ -31,7 +31,7 @@ class TrigramModel(NgramModel):
     def __init__(self, corpora) -> None:
         super().__init__(corpora, 3)
 
-# from solutions.lab1 import BigramModel, TrigramModel
+from solutions.lab1 import BigramModel, TrigramModel
 
 # TODO: find a way to filter out which words to return (i.e. valid ones, tokens)
 # TODO: determine a cold-start strategy, i.e. what to return if no input is given
@@ -46,27 +46,32 @@ class Lab1(LabPredictor):
         #     nltk.corpus.gutenberg.words() +\
         #     nltk.corpus.brown.words() +\
         #     nltk.corpus.webtext.words()
-        self.corpora = nltk.corpus.webtext.words()
-        self.model = None
+        corpora = nltk.corpus.gutenberg
+        self.corpora_words = corpora.words()
 
-    def cold_start(self, input_text):
-        # TODO: implement a better way to select words when invalid input is given
-        return ["hello", "I", "where"]
+        # calculate most common starting word in sentences:
+        n_most_common_startwords = nltk.FreqDist(
+            [sent[0] for sent in corpora.sents()]).most_common(4)
+        self.most_common_startwords = [word for word, _ in n_most_common_startwords]
+        print("most_common_startword:", self.most_common_startwords)
+        
+        self.model = None
+        self.backoff_model = None
 
     def predict(self, input_text):
-        if not input_text:
-            input_text = ""
+        if not bool(input_text):
+            return self.most_common_startwords
 
         # as long as we don't have enough data to predict the next word...
         min_length = 1 if isinstance(self.model, BigramModel) else 2
-        cold_start = len(input_text.split()) < min_length
-        if cold_start:
-            return self.cold_start(input_text)
+        # TODO: implement a better way to select words when invalid input is given
+        if len(input_text.split()) < min_length:
+            return self.backoff_model.predict(input_text)
 
         return self.model.predict(input_text)
 
     def train(self):
         print("Training...")
-        # self.model = BigramModel(self.corpora)
-        self.model = TrigramModel(self.corpora)
+        self.model = TrigramModel(self.corpora_words)
+        self.backoff_model = BigramModel(self.corpora_words)
         print("Done training.")
