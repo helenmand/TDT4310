@@ -3,8 +3,6 @@
 ##  `Welcome 👋`
 This is a space for the labs of TDT4310, including the tasks and supplementary material.
 
-Note that the first lab will posted the first week of the course (**january 13**) alongside the regular lecture. The week after, **january 20 14:15**, the first lab session takes place in [**H3**](https://link.mazemap.com/xm0ZQ2gt), where you will be able to ask questions and get some assistance.
-
 Main points:
 1. Labs released every second Friday (see dates below)
 2. You get an initial week to work with (and possibly finish) the lab
@@ -16,11 +14,11 @@ For any other questions that may not be suitable for the lab sessions, contact u
 ## `Curriculum 📚`
 This year, the course curriculum is mostly based around the brand new book by *Ekaterina Kochmar* -- Getting Started with Natural Language Processing. For purchasing instructions (+ discount), visit the course page on Blackboard.
 
-<div style="text-align:center">
+<p align="center">
     <img src="assets/kochmar.png" width=200>
-</div>
+</p>
 
-Moreover, we'll make use of the NLTK library. As usual, more information can be found on blackboard. The official site for NLTK is [here](https://www.nltk.org/book).
+We'll also use the NLTK library. As usual, more information on textbooks and other resources can be found on blackboard.
 
 ## `Labs 📝`
 Labs will be found in this main directory as markdown files (e.g. [LAB_1.md](LAB_1.md)).
@@ -43,23 +41,21 @@ Throughout the labs, alongside a few questions and simple tasks, you will be imp
 
 **The backend, which you will be working with**, is built using [**Flask**](https://palletsprojects.com/p/flask/). This course assumes fairly good knowledge of programming in general, and you are expected to be able to debug potential issues with the system yourself. I will, of course, do my best to aid you in this process. A screenshot of the application is shown below.
 
-<div style="text-align:center">
+<p align="center">
     <img src="assets/electronapp.png" width=400>
-    <p><i>Electron app</i></p>
-</div>
+</p>
 
 The frontend application (running on your PC) is also set up to be exposed on your local network, allowing access from any other device connected to it. Below is an example with it accessed from a phone:
 
-<div style="text-align:center">
+<p align="center">
     <img src="assets/lab_phone.png" width=400>
-    <p><i>Phone accessing the frontend on a local network</i></p>
-</div>
+</p>
 
 ## `Grading 👨‍🏫`
 The labs are not graded, but pass/fail. You need to pass all labs to be eligible for the exam. The criteria will be explained further below.
 
 ## `Questions and help 🙋‍♂️`
-Try to keep questions regarding labs to the lab session. We will also allow for questions on Blackboard. Try to explore the Q&A resources we've published from earlier years first [here](QA.md).
+Try to keep questions regarding labs to the lab session. We will also allow for questions on Blackboard. Feel free to explore the Q&A resources we've published from earlier years first [here](QA.md).
 
 Some info on the libraries used:
 - NLTK has an extensive collection of both explanations and sample usages:
