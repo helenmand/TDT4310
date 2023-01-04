@@ -4,13 +4,9 @@ from time import time
 from lab_utils import LabPredictor
 from your_implementations import Lab1, Lab2, Lab3, Lab4
 
-from solutions import Lab1Solution, Lab2Solution, Lab3Solution, Lab4Solution
-
-
 class LabRunner():
     def __init__(self) -> None:
-        # self.all_labs : List[LabPredictor] = [Lab1, Lab2, Lab3, Lab4]
-        self.all_labs : List[LabPredictor] = [Lab1Solution, Lab2Solution, Lab3Solution, Lab4Solution]
+        self.all_labs : List[LabPredictor] = [Lab1, Lab2, Lab3, Lab4]
         self.initialized_labs : List[Optional[LabPredictor]] = [None] * len(self.all_labs)
         self.active_lab : Optional[LabPredictor] = None
         self.current_text : str = ""
