@@ -4,10 +4,13 @@ from time import time
 from lab_utils import LabPredictor
 from your_implementations import Lab1, Lab2, Lab3, Lab4
 
+from solutions import Lab1Solution, Lab2Solution, Lab3Solution, Lab4Solution
+
 
 class LabRunner():
     def __init__(self) -> None:
-        self.all_labs : List[LabPredictor] = [Lab1, Lab2, Lab3, Lab4]
+        # self.all_labs : List[LabPredictor] = [Lab1, Lab2, Lab3, Lab4]
+        self.all_labs : List[LabPredictor] = [Lab1Solution, Lab2Solution, Lab3Solution, Lab4Solution]
         self.initialized_labs : List[Optional[LabPredictor]] = [None] * len(self.all_labs)
         self.active_lab : Optional[LabPredictor] = None
         self.current_text : str = ""
@@ -28,11 +31,11 @@ class LabRunner():
         self.initialized_labs[lab] = self.active_lab
 
     def predict(self, input_text: str) -> List[str]:
+        print(f"Received text: {input_text}")
         if not self.active_lab:
             raise Exception("Lab not initialized")
 
         self.current_text = input_text
         preds = self.active_lab.predict(input_text)
-        print("preds:", preds)
-
+        print(f"Predictions: {preds}")
         return preds

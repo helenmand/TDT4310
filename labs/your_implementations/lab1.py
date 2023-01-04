@@ -17,21 +17,20 @@ All this does it to ensure you implement the following:
 """
 # pylint: disable=too-few-public-methods
 class NgramModel:
-    def __init__(self, corpora, n_gram) -> None:
+    def __init__(self, n_gram=1) -> None:
         print(f"Loading {n_gram}-gram model...")
 
     def predict(self, input_text):
         return ["predict", "some", "words"]
 
 class BigramModel(NgramModel):
-    def __init__(self, corpora) -> None:
-        super().__init__(corpora, 2)
+    def __init__(self) -> None:
+        super().__init__(n_gram=2)
 
 class TrigramModel(NgramModel):
-    def __init__(self, corpora) -> None:
-        super().__init__(corpora, 3)
+    def __init__(self) -> None:
+        super().__init__(n_gram=3)
 
-from solutions.lab1 import BigramModel, TrigramModel
 
 # TODO: find a way to filter out which words to return (i.e. valid ones, tokens)
 # TODO: determine a cold-start strategy, i.e. what to return if no input is given
@@ -42,36 +41,25 @@ from solutions.lab1 import BigramModel, TrigramModel
 class Lab1(LabPredictor):
     def __init__(self):
         super().__init__()
-        # corpora = \
-        #     nltk.corpus.gutenberg.words() +\
-        #     nltk.corpus.brown.words() +\
-        #     nltk.corpus.webtext.words()
-        corpora = nltk.corpus.gutenberg
-        self.corpora_words = corpora.words()
-
-        # calculate most common starting word in sentences:
-        n_most_common_startwords = nltk.FreqDist(
-            [sent[0] for sent in corpora.sents()]).most_common(4)
-        self.most_common_startwords = [word for word, _ in n_most_common_startwords]
-        print("most_common_startword:", self.most_common_startwords)
+        brown_categories = ['news', 'editorial', 'reviews', 'government', 'learned', 'hobbies', 'humor']
+        self.corpora = nltk.corpus.brown.categories(brown_categories)
+        self.model = TrigramModel()  # TODO: the trigram model
+        self.backoff_model = BigramModel()  # TODO: the bigram model as a back-off
         
-        self.model = None
-        self.backoff_model = None
+        self.start_words = ["predict", "some", "words"]
 
     def predict(self, input_text):
         if not bool(input_text):
-            return self.most_common_startwords
+            # TODO: implement a better strategy for first word selection
+            return self.start_words  
 
-        # as long as we don't have enough data to predict the next word...
-        min_length = 1 if isinstance(self.model, BigramModel) else 2
-        # TODO: implement a better way to select words when invalid input is given
-        if len(input_text.split()) < min_length:
+        # TODO: make use of the backoff model when the input is too short for trigrams
+        cold_start = False
+        if cold_start:
             return self.backoff_model.predict(input_text)
-
         return self.model.predict(input_text)
 
     def train(self):
         print("Training...")
-        self.model = TrigramModel(self.corpora_words)
-        self.backoff_model = BigramModel(self.corpora_words)
+        # TODO: train the model and backoff_model
         print("Done training.")
