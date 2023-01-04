@@ -83,7 +83,7 @@ The frontend application can be run in two ways:
 The labs are not graded, but pass/fail. You need to pass all labs to be eligible for the exam. The criteria will be explained further below.
 
 ## `Questions and help 🙋‍♂️`
-Try to keep questions regarding labs to the lab session. We will also allow for questions on Blackboard. Feel free to explore the Q&A resources we've published from earlier years first [here](QA.md).
+Try to keep questions regarding labs to the lab session. Other questions may be posted on Blackboard.
 
 Some info on the libraries used:
 - NLTK has an extensive collection of both explanations and sample usages:
