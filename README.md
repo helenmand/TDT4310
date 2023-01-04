@@ -68,15 +68,7 @@ The frontend application can be run in two ways:
 1. Using the precompiled Electron application (recommended)
 2. Using npm (more flexible, but requires some setup, as described below)
 
-- install `npm`:
-    - Linux:
-        - `sudo apt install npm`
-    - MacOS:
-        - `brew install npm`
-            - If you don't have brew, install it first: https://brew.sh/
-    - Windows:
-        - https://www.npmjs.com/get-npm
-        - With chocolatey: `choco install npm`
+- install node, which includes the `npm` cli: https://nodejs.org/en/download/
 - `cd labs_frontend`
 - `npm install`
 - `npm start`
