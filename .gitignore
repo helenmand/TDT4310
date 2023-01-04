@@ -1,4 +1,5 @@
 *.DS_Store
 **/*.pyc
 labs/solutions
+solutions
 *node_modules
