@@ -9,34 +9,20 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-import { post } from './api';
+import { post, getStatus, getPredictions } from './api';
 import { NextWordButton, LabSelector } from './components';
 import { RefreshOutlined, WifiTethering, WifiTetheringError } from '@mui/icons-material';
+
+import { handleNextWord } from './util';
 
 const darkTheme = createTheme({ palette: { mode: 'dark' } });
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 const themes = [lightTheme, darkTheme];
 
-function handleNextWord(setFunction, inputText, nextWord) {
-  const nospace_before = ".,!?;:()[]{}\"'”“’‘-–—…/\\#".split('')
-  const nospace_after = "'-#([/\\"
-  // if the last character typed is an apostrophe or hyphen, don't add a space
-  const lastChar = inputText.slice(-1)
-  inputText = inputText.trimEnd()
-
-  let space = " "
-  if (nospace_after.includes(lastChar) || nospace_before.includes(nextWord) || inputText === '') {
-    space = ""
-  }
-  setFunction(`${inputText}${space}${nextWord}`)
-}
-
 // const HOST = "localhost"  // change to your local ip to access from other devices
-const HOST = "10.0.0.8"
+const HOST = "10.24.23.203"
 const PORT = "8080"
 const URL = `http://${HOST}:${PORT}`
-
-const DEFAULT_TEXT = "where are you"
 
 function App() {
   const theme = useTheme();
@@ -47,8 +33,7 @@ function App() {
 
   const [labNumber, setLabNumber] = useState(0);
   const [predictedWords, setPredictedWords] = useState([]);
-  const [loadingWords, setLoadingWords] = useState(true);
-  const [inputText, setInput] = useState(DEFAULT_TEXT);
+  const [inputText, setInput] = useState("");
   const [url, setUrl] = useState(URL);
   const [apiCalls, setApiCalls] = useState(0);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -62,47 +47,17 @@ function App() {
 
   // get status from the status endpoint to populate the current text and to check if the model is trained
   useEffect(() => {
-    async function getStatus() {
-      try {
-        let statusUrl = `${url}/status`;
-        const status = await fetch(statusUrl);
-        const statusJson = await status.json();
-        setInput(statusJson.text);
-        setTrained(statusJson.trained[labNumber]);
-      }
-      catch (e) {
-        setError(`Could not connect to server. Verify the URL (${url})`)
-      }
-    }
-    getStatus();
+    getStatus(url, setInput, setTrained, setError, labNumber);
   }, [url, labNumber]);
 
   useEffect(() => {
     if (!trained) { return; }
-    async function getPredictions() {
-      try {
-        setLoadingWords(true);
-        let predictionUrl = `${url}/predictions`;
-        let body = JSON.stringify({"text": inputText, "lab": labNumber})
-        const words = await post(predictionUrl, body);
-        if (!Array.isArray(words)) {
-          setError(`No predictions received. Verify the URL (${url})`)
-          return []
-        }
-        else {
-          setError(null);
-          setPredictedWords(words);
-        }
+    setTimeout(() => {
+      if (!isTyping) {
+        getPredictions(url, inputText, labNumber, setError, setPredictedWords);
+        setApiCalls(calls => calls + 1);
       }
-      catch (e) {
-        setError(`Could not connect to server. Verify the URL (${url})`)
-      }
-      finally {
-        setLoadingWords(false);
-        setApiCalls(api => api + 1);
-      }
-    }
-    setTimeout(() => { if (!isTyping) { getPredictions(); } }, 200);
+    }, 200);
   }, [inputText, trained, isTyping, settingsOpen, url, labNumber]);
 
   useEffect(() => {
@@ -119,6 +74,12 @@ function App() {
     inputField.addEventListener('keydown', onTyping);
     return () => inputField.removeEventListener('keydown', onTyping);
   }, [isTyping, trained]);
+
+  // whether to titlecase a button and its resulting text
+  const titleCased = (inputText.trim().length === 0 || inputText.slice(-1) === " ") && (
+      inputText.split(" ").length <= 1 ||
+      "?!.".split('').includes(inputText.trimEnd().slice(-1))
+  )
 
   return (
     <ThemeProvider theme={themes[theme_id]}>
@@ -139,9 +100,10 @@ function App() {
                   {[...predictedWords].map((_, i) => (
                     <Grid item key={predictedWords[i] + i}>
                       <NextWordButton
+                        titleCased={titleCased}
                         word={predictedWords[i]}
                         onClick={
-                          () => handleNextWord(setInput, inputText, predictedWords[i])
+                          () => handleNextWord(setInput, inputText, predictedWords[i], titleCased)
                         }
                       />
                     </Grid>
@@ -193,7 +155,6 @@ function App() {
                   const labChangeInfo = await post(
                     `${url}/lab`,
                     JSON.stringify({"lab": e.target.value}))
-                  console.log(labChangeInfo)
                   setStatusMessage(labChangeInfo["message"])
                 }}
               />
