@@ -57,6 +57,9 @@ class Lab1(LabPredictor):
         cold_start = False
         if cold_start:
             return self.backoff_model.predict(input_text)
+        # alternatively, you can switch between the tri- and bigram models
+        # based on the output probabilities. This is optional.
+
         return self.model.predict(input_text)
 
     def train(self):

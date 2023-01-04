@@ -27,8 +27,7 @@ With the sentence above, use NLTK to get:
 
 We can continue the n-gram model infinitely (4-grams, 5-grams, ...)
 
-3. Explain why we should avoid too large values for $n$
-4. What do you think happens when we select a large $n$ value for a small corpus? 
+3. What issues may occur if we select a large $n$ value for a small corpus? What would you guess to be ideal for a smart keyboard?
 
 ## 3) Introduction to word representations
 Word representations, or word embeddings, are a way to represent words as vectors. Word vectors will be described in greater detail later in the course. 
@@ -51,6 +50,6 @@ With the sentence:
 
 Answer the following:
 
-1. What are your thoughts on the usefulness of this representation?
+1. What are your thoughts on the usefulness of this representation? Can you think of a way to improve it?
 
 2. How could you use this technique to compare sentences with each other?

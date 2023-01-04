@@ -19,8 +19,9 @@ const darkTheme = createTheme({ palette: { mode: 'dark' } });
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 const themes = [lightTheme, darkTheme];
 
-// const HOST = "localhost"  // change to your local ip to access from other devices
-const HOST = "10.24.23.203"
+const HOST = "localhost" 
+// change to your local ip to access from other devices
+// const HOST = "10.24.23.203"
 const PORT = "8080"
 const URL = `http://${HOST}:${PORT}`
 
