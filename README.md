@@ -20,22 +20,25 @@ This year, the course curriculum is mostly based around the brand new book by *E
 We'll also use the NLTK library. As usual, more information on textbooks and other resources can be found on blackboard.
 
 ## `Labs 📝`
-Labs will be found in this main directory as markdown files (e.g. [LAB_1.md](LAB_1.md)).
+All exercises/labs will follow this format:
+- a markdown file (also supplied as a PDF) with questions relevant to the current lab (e.g. [LAB_1.md](LAB_1.md))
+- server code that you will implement to improve the keyboard, found under `labs/your_implementations/lab_n.py`. 
+
+It is highly recommended to complete the initial questions before moving on to the implementation.
+
+**❗️Delivery❗️**
+
+Deliver your answers as a PDF file on the respective lab page on Blackboard. Keep your answers short. The questions are merely meant to guide you towards an understanding of the topics, so that you can focus on the implementation part. 
 
 Here's a brief overview of the labs:
 
 | Lab | Published | Deadline | Topic | Smart keyboard features | Libraries | Chapters |
 | - | - | - | - | - | - | - |
-| 1 | Jan. 13 | Jan. 27 | Basic text processing, introduction to word vectors and language modeling | Next-word prediction | NLTK | 2, 3 |
+| 1 | Jan. 13 | Jan. 27 | Tokenization, introduction to word vectors and language modeling | Next-word prediction | NLTK | 2, 3 |
 | 2 | Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK | 4, 5, 6 |
 | 3 | Feb. 10 | Feb. 24 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
 | 4 | Feb. 24 | Mar. 10 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
-| Project | Mar. 10 | inf | - | - | - | - |
 |
-
-From this point on, the focus will be shifted towards your projects. This will involve machine learning and deep learning techniques, building upon the tasks you've completed in the labs.
-
-The level of difficulty will increase over time, as can be seen from the topics. Some of you will definitely feel the need to get more applications of modern state-of-the-art approaches, but note that you're free to explore anything in the project later in the course!
 
 ## `The main theme: building a smart keyboard 💻`
 Throughout the labs, alongside a few questions and simple tasks, you will be implementing a **smart keyboard**, mostly from scratch. I have prepared a full-stack application, where your task is to build a system that suggests the next word(s).
