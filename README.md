@@ -42,7 +42,7 @@ Here's a brief overview of the labs:
 
 ## `The main theme: building a smart keyboard 💻`
 Throughout the labs, alongside a few questions and simple tasks, you will be implementing a **smart keyboard**, mostly from scratch. I have prepared a full-stack application, where your task is to build a system that suggests the next word(s).
-The frontend application is built using [**React**](https://reactjs.org/) and is accessible directly through `npm` (see instructions below).
+The frontend application (which you do not need to modify) is built using [**React**](https://reactjs.org/).
 
 **The backend, which you will be working with**, is built using [**Flask**](https://palletsprojects.com/p/flask/). This course assumes fairly good knowledge of programming in general, and you are expected to be able to debug potential issues with the system yourself. I will, of course, do my best to aid you in this process. A screenshot of the application is shown below.
 
@@ -50,7 +50,7 @@ The frontend application is built using [**React**](https://reactjs.org/) and is
     <img src="assets/electronapp.png" width=400>
 </p>
 
-The frontend application (running on your PC) is also set up to be exposed on your local network, allowing access from any other device connected to it. Below is an example with it accessed from a phone:
+The frontend application (running on your PC) is also set up to be exposed on your local network, allowing access from any other device connected to it (either if you're lacking screens, or just for fun!). Below is an example with it accessed from a phone:
 
 <p align="center">
     <img src="assets/lab_phone.png" width=250>
