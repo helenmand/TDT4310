@@ -1,68 +1,124 @@
+import re
+from typing import List
+
 import nltk
 from lab_utils import LabPredictor
 
 # pylint: disable=pointless-string-statement
 """ Welcome to the first lab!
-As you can see from the import above,
-we will be implementing a class that inherits from LabPredictor,
-a pattern which will be used for all labs, for consistency :-)
 
-All this does it to ensure you implement the following:
+The comments and TODOs should guide you through the implementation,
+but feel free to modify the variables and the overall structure as you see fit.
 
-- a "predict" method, which returns a list which will be shown in the frontend
-    as buttons for selecting the next word(s)
+It is important to ekep the name of the main class: Lab1, as this 
+is imported by the `lab_runner.py` file.
 
-- a train method, which contains all steps needed to build your model,
-    whether it's based on simple rules or a neural network
+You should complete the code for the classes:
+- NgramModel (superclass of BigramModel and TrigramModel)
+- BigramModel (should be a simple implementation with a few parameters)
+- TrigramModel (should be a simple implementation with a few parameters)
+- Lab1 (the main logic for parsing input and handling models)
 """
-# pylint: disable=too-few-public-methods
-class NgramModel:
-    def __init__(self, n_gram=1) -> None:
-        print(f"Loading {n_gram}-gram model...")
 
-    def predict(self, input_text):
-        return ["predict", "some", "words"]
+class NgramModel:
+    """ The main class for all n-gram models
+
+    Here you will create your model (based on N)
+    and complete the predict method to return the most likely words.
+    
+    """
+    def __init__(self, n_gram=1) -> None:
+        """ the init method should load/train your model
+        Args:
+            n_gram (int, optional): 2=bigram, 2=trigram, ... Defaults to 1.
+        """
+        print(f"Loading {n_gram}-gram model...")
+        self.n_gram = n_gram
+        self.words_to_return = 4  # how many words to show in the UI
+
+        self.model = None  # TODO: implement the model using built-in NLTK methods
+        # take a look at the nltk.collocations module
+        # https://www.nltk.org/howto/collocations.html
+
+    def predict(self, tokens: List[str]) -> List[str]:
+        """ given a list of tokens, return the most likely next words
+
+        Args:
+            tokens (List[str]): preprocessed tokens from the LabPredictor
+
+        Returns:
+            List[str]: selected candidates for next-word prediction
+        """
+        # we're only interested in the last n-1 words.
+        # e.g. for a bigram model,
+        # we're only interested in the last word to predict the next
+        n_tokens = tokens[-(self.n_gram - 1):]
+
+        probabilities = [] # TODO: find the probabilities for the next word(s)
+        
+        # TODO: apply some filtering to only select the words
+        # here you're free to select your filtering methods
+        # a simple approach is to simply sort them by probability
+
+        best_matches = []  # TODO: sort/filter to your liking
+
+        # then return as many words as you've defined above
+        return best_matches[:self.words_to_return]
+
 
 class BigramModel(NgramModel):
     def __init__(self) -> None:
         super().__init__(n_gram=2)
+
 
 class TrigramModel(NgramModel):
     def __init__(self) -> None:
         super().__init__(n_gram=3)
 
 
-# TODO: find a way to filter out which words to return (i.e. valid ones, tokens)
-# TODO: determine a cold-start strategy, i.e. what to return if no input is given
-# TODO: what to do when encountering never before seen combinations?
-# TODO: what to do when encountering a word that is not in the vocabulary?
-# --> Find similar words in the corpus?
-
 class Lab1(LabPredictor):
     def __init__(self):
         super().__init__()
-        brown_categories = ['news', 'editorial', 'reviews', 'government', 'learned', 'hobbies', 'humor']
-        self.corpora = nltk.corpus.brown.categories(brown_categories)
-        self.model = TrigramModel()  # TODO: the trigram model
-        self.backoff_model = BigramModel()  # TODO: the bigram model as a back-off
-        
+        self.corpora = None  # TODO: load a corpus from NLTK
+
+        # Define a strategy to select the first words (when there's no input)
+        # TODO: this should not be a predefined list
         self.start_words = ["predict", "some", "words"]
 
+    @staticmethod
+    def preprocess(text: str) -> List[str]:
+        """
+        Preprocess the input text as you see fit, return a list of tokens.
+
+        - should you consider parentheses, punctuation?
+        - lowercase?
+        - find inspiration from the course literature :-)
+        """
+        # TODO: filters here
+
+        tokens = []  # TODO: tokenize the preprocessed text
+        return tokens
+
     def predict(self, input_text):
-        if not bool(input_text):
-            # TODO: implement a better strategy for first word selection
-            return self.start_words  
+        if not bool(input_text):  # if there's no input...
+            print("No input, using start words")
+            return self.start_words
 
-        # TODO: make use of the backoff model when the input is too short for trigrams
-        cold_start = False
-        if cold_start:
-            return self.backoff_model.predict(input_text)
+        tokens = self.preprocess(input_text)
+
+        # make use of the backoff model (e.g. bigram)
+        too_few = False  # TODO: check if the input is too short for trigrams
+
+        # select the correct model based on the condition
+        model = self.backoff_model if too_few else self.model
         # alternatively, you can switch between the tri- and bigram models
-        # based on the output probabilities. This is optional.
+        # based on the output probabilities. This is 100% optional!
 
-        return self.model.predict(input_text)
+        return model.predict(tokens)
 
-    def train(self):
-        print("Training...")
-        # TODO: train the model and backoff_model
-        print("Done training.")
+    def train(self) -> None:
+        """ train or load the models
+        add parameters as you like, such as the corpora you selected.
+        """
+        self.model = TrigramModel()  # TODO: add needed parameters
+        self.backoff_model = BigramModel()  # TODO: add needed parameters
