@@ -42,7 +42,7 @@ Here's a brief overview of the labs:
 
 ## `The main theme: building a smart keyboard 💻`
 Throughout the labs, alongside a few questions and simple tasks, you will be implementing a **smart keyboard**, mostly from scratch. I have prepared a full-stack application, where your task is to build a system that suggests the next word(s).
-The frontend application is built using [**React**](https://reactjs.org/) and is accessible directly through [npm](https://www.npmjs.com) or through the supplied (precompiled) Electron application. The former will give you more flexibility when running the systems locally.
+The frontend application is built using [**React**](https://reactjs.org/) and is accessible directly through `npm` (see instructions below).
 
 **The backend, which you will be working with**, is built using [**Flask**](https://palletsprojects.com/p/flask/). This course assumes fairly good knowledge of programming in general, and you are expected to be able to debug potential issues with the system yourself. I will, of course, do my best to aid you in this process. A screenshot of the application is shown below.
 
@@ -64,9 +64,8 @@ I suggest you download all packages in NLTK so you can experiment freely without
 - `pip install -r requirements.txt`
 - `python -m nltk.downloader all`
 ### `Frontend (React application) ⚛`
-The frontend application can be run in two ways:
-1. Using the precompiled Electron application (recommended)
-2. Using npm (more flexible, but requires some setup, as described below)
+
+The frontend application runs by doing the following:
 
 - install node, which includes the `npm` cli: https://nodejs.org/en/download/
 - `cd labs_frontend`
