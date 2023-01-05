@@ -3,9 +3,16 @@ Welcome to the first lab! Starting off, please familiarize yourself with the [Gi
 
 All exercises/labs will follow this format:
 - A markdown file (also supplied as a PDF) with questions relevant to the current lab
-- Server code that you will implement to improve the keyboard, found under `labs/your_implementations/lab_n.py`. 
+- Server code that you will implement to improve the keyboard, found under `labs/your_implementations/lab_n.py`.
 
 It is highly recommended to complete the initial questions before moving on to the implementation. 
+
+**You will deliver the following**
+
+A zipped file with your NTNU user name, containing two files:
+
+- A document (any format, but PDF preferred) which answers the questions found here
+- A copy of your `lab_1.py` file at `labs/your_implementations/lab_1.py`
 
 ## 1) Tokenization
 
@@ -53,3 +60,7 @@ Answer the following:
 1. What are your thoughts on the usefulness of this representation? Can you think of a way to improve it?
 
 2. How could you use this technique to compare sentences with each other?
+
+
+# Implementation notes
+As a final part of the lab, I want you to briefly discuss your approach to the implementation task. This could be things you had to learn, difficult parts of the lab, etc.
