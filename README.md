@@ -38,7 +38,6 @@ Here's a brief overview of the labs:
 | 2 | Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK | 4, 5, 6 |
 | 3 | Feb. 10 | Feb. 24 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
 | 4 | Feb. 24 | Mar. 10 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
-|
 
 ## `The main theme: building a smart keyboard 💻`
 Throughout the labs, alongside a few questions and simple tasks, you will be implementing a **smart keyboard**, mostly from scratch. I have prepared a full-stack application, where your task is to build a system that suggests the next word(s).
@@ -74,7 +73,7 @@ The frontend application runs by doing the following:
 
 
 ## `Grading 👨‍🏫`
-The labs are not graded, but pass/fail. You need to pass all labs to be eligible for the exam. The criteria will be explained further below.
+The labs are not graded, but pass/fail. You need to pass all labs to be eligible for the exam. The criteria will be explained further on blackboard and in lectures.
 
 ## `Questions and help 🙋‍♂️`
 Try to keep questions regarding labs to the lab session. Other questions may be posted on Blackboard.
