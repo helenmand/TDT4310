@@ -27,8 +27,9 @@ All exercises/labs will follow this format:
 It is highly recommended to complete the initial questions before moving on to the implementation.
 
 **❗️Delivery❗️**
+Delivery guidelines are found in each lab. In short, submit a zip file with your NTNU username, containing your answers to the exercises as a document, in addition to a python file with your completed implementation of the lab.
 
-Deliver your answers as a PDF file on the respective lab page on Blackboard. Keep your answers short. The questions are merely meant to guide you towards an understanding of the topics, so that you can focus on the implementation part. 
+For the exercises, keep your answers short. These questions are meant to guide you towards an understanding of the topics, so that you can focus on the implementation.
 
 Here's a brief overview of the labs:
 
@@ -38,6 +39,8 @@ Here's a brief overview of the labs:
 | 2 | Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK | 4, 5, 6 |
 | 3 | Feb. 10 | Feb. 24 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
 | 4 | Feb. 24 | Mar. 10 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
+
+> Note that you can find some useful tips from last year's course here: https://github.com/tollefj/TDT4310-2022
 
 ## `The main theme: building a smart keyboard 💻`
 Throughout the labs, alongside a few questions and simple tasks, you will be implementing a **smart keyboard**, mostly from scratch. I have prepared a full-stack application, where your task is to build a system that suggests the next word(s).
