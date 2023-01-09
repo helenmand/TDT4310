@@ -1,17 +1,20 @@
 # Lab 1
+**Deadline: January 27, 23:59.**
+
 Welcome to the first lab! Starting off, please familiarize yourself with the [Github repository](https://github.com/tollefj/TDT4310-spring-2023) (https://github.com/tollefj/TDT4310-spring-2023). You will need to clone it to be able to work on the labs.
 
 All exercises/labs will follow this format:
-- A markdown file (also supplied as a PDF) with questions relevant to the current lab
+
+- A markdown file (also supplied as a PDF) -- which you are currently reading -- with questions and tasks relevant to the current lab.
 - Server code that you will implement to improve the keyboard, found under `labs/your_implementations/lab_n.py`.
 
-It is highly recommended to complete the initial questions before moving on to the implementation. 
+It is highly recommended to complete the initial questions before moving on to the implementation. They should not be time consuming. Please use the discussion boards
 
 **You will deliver the following**
 
 A zipped file with your NTNU user name, containing two files:
 
-- A document (any format, but PDF preferred) which answers the questions found here
+- A document (any sensible format, but PDF preferred) which answers the tasks in this document
 - A copy of your `lab_1.py` file at `labs/your_implementations/lab_1.py`
 
 ## 1) Tokenization
