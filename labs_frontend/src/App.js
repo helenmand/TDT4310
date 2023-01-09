@@ -25,6 +25,8 @@ const HOST = "localhost"
 const PORT = "8080"
 const URL = `http://${HOST}:${PORT}`
 
+const localStoredLab = localStorage.getItem("labNumber")
+
 function App() {
   const theme = useTheme();
   const [theme_id, setThemeId] = useState(1);  // 0 = light, 1 = dark
@@ -32,7 +34,7 @@ function App() {
   const [trained, setTrained] = useState(false);
   const [training, setTraining] = useState(false);
 
-  const [labNumber, setLabNumber] = useState(0);
+  const [labNumber, setLabNumber] = useState(localStoredLab ? parseInt(localStoredLab) : 0);
   const [predictedWords, setPredictedWords] = useState([]);
   const [inputText, setInput] = useState("");
   const [url, setUrl] = useState(URL);
@@ -153,6 +155,8 @@ function App() {
                 labNumber={labNumber}
                 onChange={async (e) => {
                   setLabNumber(e.target.value)
+                  // update lab number in localstorage:
+                  localStorage.setItem("labNumber", e.target.value)
                   const labChangeInfo = await post(
                     `${url}/lab`,
                     JSON.stringify({"lab": e.target.value}))
