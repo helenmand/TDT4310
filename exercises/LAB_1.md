@@ -37,9 +37,9 @@ We can continue the n-gram model infinitely (4-grams, 5-grams, ...)
 3. What issues may occur if we select a large $n$ value for a small corpus? What would you guess to be ideal for a smart keyboard?
 
 ## 3) Introduction to word representations
-Word representations, or word embeddings, are a way to represent words as vectors. Word vectors will be described in greater detail later in the course. 
+Vectorization, word representations, or word embeddings, are a way to represent words or documents as vectors. Word vectors will be described in greater detail later in the course. 
 
-For now, we'll consider a very simple implementation based on the bag-of-words representation.
+For now, we'll consider a very simple implementation based on the bag-of-words representation of a document.
 
 With the sentence:
 

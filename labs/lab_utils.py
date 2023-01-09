@@ -6,11 +6,11 @@ class LabPredictor(ABC):
         self.model = model
 
     @abstractmethod
-    def predict(self, input_text: str) -> List[str]:
+    def predict(self, text: str) -> List[str]:
         """ the main predictor function. this should return a list of strings that will be visible in the frontend keyboard
 
         Args:
-            input_text (str): the input text from the frontend keyboard
+            text (str): the input text from the frontend keyboard
         """
         raise NotImplementedError
 
