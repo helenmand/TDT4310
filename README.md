@@ -21,7 +21,7 @@ We'll also use the NLTK library. As usual, more information on textbooks and oth
 
 ## `Labs 📝`
 All exercises/labs will follow this format:
-- a markdown file (also supplied as a PDF) with questions relevant to the current lab (e.g. [LAB_1.md](LAB_1.md))
+- Questions (provided as pdf/markdown) relevant to the current lab (e.g. [LAB_1.pdf](exercises/LAB_1.pdf))
 - server code that you will implement to improve the keyboard, found under `labs/your_implementations/lab_n.py`. 
 
 It is highly recommended to complete the initial questions before moving on to the implementation.
@@ -33,12 +33,12 @@ For the exercises, keep your answers short. These questions are meant to guide y
 
 Here's a brief overview of the labs:
 
-| Lab | Published | Deadline | Topic | Smart keyboard features | Libraries | Chapters |
-| - | - | - | - | - | - | - |
-| 1 | Jan. 10 | Jan. 27 | Tokenization, introduction to word vectors and language modeling | Next-word prediction | NLTK | 2, 3 |
-| 2 | Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK, spaCy | 4, 5, 6 |
-| 3 | Feb. 10 | Feb. 24 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
-| 4 | Feb. 24 | Mar. 10 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
+| Lab | Link | Published | Deadline | Topic | Smart keyboard features | Libraries | Chapters |
+| - | - | - | - | - | - | - | - |
+| 1 | [Lab1](exercises/LAB_1.pdf) | Jan. 10 | Jan. 27 | Tokenization, introduction to word vectors and language modeling | Next-word prediction | NLTK | 2, 3 |
+| 2 | | Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK, spaCy | 4, 5, 6 |
+| 3 | | Feb. 10 | Feb. 24 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
+| 4 | | Feb. 24 | Mar. 10 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
 
 > Note that you can find some useful tips from last year's course here: https://github.com/tollefj/TDT4310-2022
 
