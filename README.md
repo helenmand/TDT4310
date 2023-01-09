@@ -31,7 +31,9 @@ Delivery guidelines are found in each lab. In short, submit a zip file with your
 
 For the exercises, keep your answers short. These questions are meant to guide you towards an understanding of the topics, so that you can focus on the implementation.
 
-Here's a brief overview of the labs:
+Here's a brief overview of the labs
+
+**(topics and dates may change throughout the semester based on feedback and other things)**
 
 | Lab | Link | Published | Deadline | Topic | Smart keyboard features | Libraries | Chapters |
 | - | - | - | - | - | - | - | - |
