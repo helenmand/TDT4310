@@ -51,13 +51,13 @@ The frontend application (which you do not need to modify) is built using [**Rea
 **The backend, which you will be working with**, is built using [**Flask**](https://palletsprojects.com/p/flask/). This course assumes fairly good knowledge of programming in general, and you are expected to be able to debug potential issues with the system yourself. I will, of course, do my best to aid you in this process. A screenshot of the application is shown below.
 
 <p align="center">
-    <img src="assets/electronapp.png" width=400>
+    <img src="assets/electronapp.png" width=600>
 </p>
 
 The frontend application (running on your PC) is also set up to be exposed on your local network, allowing access from any other device connected to it (either if you're lacking screens, or just for fun!). Below is an example with it accessed from a phone:
 
 <p align="center">
-    <img src="assets/lab_phone.png" width=250>
+    <img src="assets/lab_phone.png" width=350>
 </p>
 
 ## `Setup 🛠`
@@ -75,6 +75,11 @@ The frontend application runs by doing the following:
 - `cd labs_frontend`
 - `npm install`
 - `npm start`
+
+A very simplified flowchart, that may help you grasp the overall functionality:
+<p align="center">
+    <img src="assets/flow.png" width=800>
+</p>
 
 
 ## `Grading 👨‍🏫`
