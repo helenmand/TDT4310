@@ -38,7 +38,7 @@ Here's a brief overview of the labs
 | Lab | Link | Published | Deadline | Topic | Smart keyboard features | Libraries | Chapters |
 | - | - | - | - | - | - | - | - |
 | 1 | [Lab1](exercises/LAB_1.pdf) | Jan. 10 | Jan. 27 | Tokenization, introduction to word vectors and language modeling | Next-word prediction | NLTK | 2, 3 |
-| 2 | | Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK, spaCy | 4, 5, 6 |
+| 2 | [Lab2](exercises/LAB_2.pdf)| Jan. 27 | Feb. 10 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK, spaCy | 4, 5, 6 |
 | 3 | | Feb. 10 | Feb. 24 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
 | 4 | | Feb. 24 | Mar. 10 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
 
