@@ -14,6 +14,8 @@ A zipped file with your NTNU user name, containing two files:
 - A document (any sensible format, but PDF preferred) which answers the tasks in this document
 - A copy of your `lab_2.py` file at `labs/your_implementations/lab_2.py`
 
+**!!!Make sure to run `git pull` locally to fetch the latest version of the repository!!!**
+
 # Setup
 You will be using [spaCy](https://spacy.io), which contains slightly more advanced features than NLTK, and also provides pretrained models for several languages. 
 Please take a look at this url: https://spacy.io/usage/linguistic-feature 
@@ -23,9 +25,8 @@ Installation guide:
 pip install -U spacy
 python -m spacy download en_core_web_sm
 ```
-*sm** indicates the *small* english model. Feel free to install the larger ones, which will be more accurate.
+*sm** indicates the *small* english model. Feel free to install the larger ones, which will be more accurate. See usage below:
 
-Example usage:
 ```python
 import spacy
 nlp = spacy.load("en_core_web_sm")
@@ -44,7 +45,7 @@ fun fun True False ADJ (adjective)
 ! ! False False PUNCT (punctuation)
 ```
 
-In this example above, you should be familiar with things like `is_stop` (whether the token is a stopword) and `is_alpha` (whether the token is a word).
+In the above example, you should be familiar with things like `is_stop` (whether the token is a stopword) and `is_alpha` (whether the token is a word).
 
 
 ## 1) Text normalization
