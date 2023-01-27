@@ -65,9 +65,13 @@ You are required to run a few commands to get the system up and running, both fo
 
 ### `Backend (Python/Flask server) 🐍`
 I suggest you download all packages in NLTK so you can experiment freely without caring about downloading separate packages later on. Data is stored in `nltk_data` in your user folder. The total size is around 3 GB. If you're low on space, look up how to download the packages you require.
+- `cd labs`
 - `pip install -r requirements.txt`
 - `python -m nltk.downloader all`
 - `python server.py`
+
+You can always experiment with the output of your implementations before testing it in the server. The server is made mostly to be able to access the predictive keyboard in a more intuitive manner!
+The testing can be done by running the jupyter notebook found here: [labs/notebooks/lab1.ipynb](labs/notebooks/lab1.ipynb)
 
 ### `Frontend (React application) ⚛`
 
@@ -77,6 +81,11 @@ The frontend application runs by doing the following:
 - `cd labs_frontend`
 - `npm install`
 - `npm start`
+
+If `npm install` fails, you may have issues with your node installation or version. An alternative way to run this is as follows:
+- `cd labs_frontend`
+- `npm install -g serve`
+- `serve -s build` (this will run the precompiled application)
 
 A very simplified flowchart, that may help you grasp the overall functionality:
 <p align="center">
