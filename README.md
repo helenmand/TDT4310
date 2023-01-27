@@ -67,6 +67,8 @@ You are required to run a few commands to get the system up and running, both fo
 I suggest you download all packages in NLTK so you can experiment freely without caring about downloading separate packages later on. Data is stored in `nltk_data` in your user folder. The total size is around 3 GB. If you're low on space, look up how to download the packages you require.
 - `pip install -r requirements.txt`
 - `python -m nltk.downloader all`
+- `python server.py`
+
 ### `Frontend (React application) ⚛`
 
 The frontend application runs by doing the following:
