@@ -1,5 +1,5 @@
 # Lab 2
-## Deadline: 
+## Deadline: February 10, 2023
 
 By now, you should be familiar with the very basics of language modeling and the processeses surrounding the task -- such as preprocessing, tokenization and word representations.
 In this lab, we'll focus more on what features or values we can extract from words, by using (still rather basic) techniques.
@@ -7,7 +7,12 @@ In this lab, we'll focus more on what features or values we can extract from wor
 Keywords:
 - Stemming, TF-IDF, part-of-speech tagging and lemmatization
 
-REMOVE:(Before tackling this task, you must deal with the ideas around text normalization and feature extraction.)
+**You will deliver the following**
+
+A zipped file with your NTNU user name, containing two files:
+
+- A document (any sensible format, but PDF preferred) which answers the tasks in this document
+- A copy of your `lab_2.py` file at `labs/your_implementations/lab_2.py`
 
 # Setup
 You will be using [spaCy](https://spacy.io), which contains slightly more advanced features than NLTK, and also provides pretrained models for several languages. 
