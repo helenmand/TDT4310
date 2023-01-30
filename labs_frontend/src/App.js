@@ -43,15 +43,21 @@ function App() {
 
   // error handling for the server
   const [isTyping, setIsTyping] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("Waiting for server...");  // assume error on startup
   
   // status messages for different server states
   const [statusMessage, setStatusMessage] = useState(null);
 
   // get status from the status endpoint to populate the current text and to check if the model is trained
+  // get the status every 2 seconds until no error is returned
   useEffect(() => {
-    getStatus(url, setInput, setTrained, setError, labNumber);
-  }, [url, labNumber]);
+    if (!isTyping) {
+      const interval = setInterval(() => {
+        getStatus(url, setInput, setTrained, setError, labNumber);
+      }, 2000);
+      return () => clearInterval(interval)
+    }
+  }, [isTyping, error, url, labNumber]);
 
   useEffect(() => {
     if (!trained) { return; }
@@ -211,7 +217,6 @@ function App() {
     <Snackbar
       open={error !== null}
       autoHideDuration={5000}
-      onClose={() => setError(null)}
     >
       <Alert severity="error">{error}</Alert>
     </Snackbar>

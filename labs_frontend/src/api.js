@@ -14,6 +14,7 @@ export async function getStatus(url, setInput, setTrained, setError, labNumber) 
     const statusJson = await status.json();
     setInput(statusJson.text);
     setTrained(statusJson.trained[labNumber]);
+    setError(null);
   }
   catch (e) {
     setError(`Could not connect to server. Verify the URL (${url})`)
