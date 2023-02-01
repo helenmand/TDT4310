@@ -1,61 +1,40 @@
-from collections import Counter
-
-import nltk
-import spacy
 from lab_utils import LabPredictor
 
-# TODO: import the TrigramModel you implemented in Lab 1
-# I suggest you to move this to a separate "models.py" file:
-from solutions.models import TrigramModel
+# pylint: disable=pointless-string-statement
+"""
+Second Lab! POS tagging with spaCy.
 
+- As for Lab 1, it's up to you to change anything with the structure, 
+    as long as you keep the class name (Lab2, inheriting from LabPredictor)
+    and the methods (predict, train)
+
+
+While NLTK has pre-tagged corpora available, I want you to use spaCy to
+compute POS tags on just the text (same as Lab 1),
+which is more realistic for a real-world application.
+
+An important note:
+- Can you compute the POS tag from a single token, or do you need to look at the context (i.e. sentence)?
+
+"""
 
 class Lab2(LabPredictor):
     def __init__(self):
         super().__init__()
-
-        corpus = None  # TODO: load sentences from the brown corpus
-        # TODO: convert the sentences to raw text (no tokens)
-        # I suggest you to select a subset for faster training
-        print(f"Corpus size: {len(corpus)}")
-
-        self.nlp = None  # TODO: load an english spacy model
-        # TODO: handle the corpus with spacy
-        # and extract the POS tags and words
-        self.words, self.tags = [], []
-
-        # TODO: select a strategy for cold start
-        # or reuse from Lab 1
-
-        self.model = None  # the model will be loaded in `train`
+        corpus = []
+        # TODO: select a strategy for cold start (when missing words)
+        self.model = None  # the model will be loaded/made in `train`
 
     def predict(self, text):
         print(f"Lab2 receiving: {text}")
-        if not bool(text):
-            return None  # TODO: apply cold start strategy
 
-        tokens = None  # TODO: preprocess the text
-        predictions = self.model.predict(tokens)
+        # TODO: apply your own idea of using POS tags to alter/filter the predictions
+        # you can also implement anything you wish from spacy.
+        # there's a lot of interesting stuff in the spacy docs.
 
-        # TODO: calculate the POS tags for the prediicted trigrams
-        # IMPORTANT: you cannot simply take the POS tag of a single word
-        # because the POS tag of a word depends on the context
-        # -> you might need to change the output of your predictions to return the entire ngram
+        return ["this", "is", "lab", "2"]
 
-        # TODO: apply your own idea of using POS tags to filter the predictions
-        # this could mean returning the most common POS tag for the next words, only returning verbs (if you wish to do that)
-        # ... or something else entirely
-        # this is an open task :-)
-        filtered_predictions = []
-
-        return filtered_predictions
-
-    def train(self):
-        # TODO: use the trigram model from Lab 1 again
-        self.model = TrigramModel(self.words)
-
-        spacy_model = "en_core_web_sm"
-        print(f"Loading spaCy model {spacy_model}")
-        # TODO: load only spacy models for pos tagging
-        # look how up to disable unnecessary features!
-        to_disable = []
-        self.nlp = None
+    def train(self) -> None:
+        # TODO: use the trigram model from Lab 1 or the one provided in the solutions folder
+        # TODO: NEW TO LAB 2: load spacy model for POS tagging
+        pass
