@@ -108,3 +108,19 @@ Some info on the libraries used:
 - Spacy: https://spacy.io/api
 - Scikit-learn: https://scikit-learn.org/stable/modules/classes.html
 - Gensim: https://radimrehurek.com/gensim/apiref.html
+
+
+# Other resources
+
+## Running a Notebook Server
+Jupyter notebook is a beneficial tool for working with models and anything else in python. Install it:
+```
+pip install jupyterlab
+```
+After you have installed all the dependencies, you can run a notebook server:
+```bash
+jupyter-lab
+```
+This will start a slightly fancier version of [jupyter notebook](https://jupyter.org). It is a single-page application that allows you to navigate, edit, and run python and jupyter notebook files from your browser. By default, the server should be exposed at `localhost` port `8888`. If you're running this command from your laptop or desktop computer, it should automatically open in your default web browser. If not, try manually navigating to `localhost:8888` in your web browser (or copy the entire URL from the logging output in the shell you ran the command). If it asks for a password or token, this can also be found in the shell output.
+
+From here, you can start running and editing the files in the project. If you need more help with the interface, there are several [guides online](https://www.youtube.com/watch?v=7wfPqAyYADY).
