@@ -1,7 +1,7 @@
 # Lab 3 - Deadline: February 27
 **Introduction**
 
-This lab will cover necessary topics more in-depth (based on received feedback), where the majority of work will be placed in the exercise questions (part 1). In contrast, the implementation (part 2) will be much more open to interpretation and experimentation.
+This lab will cover necessary topics more in-depth (based on received feedback), where the majority of work will be placed in the exercise questions (part 1). In contrast, the implementation (part 2) will be much more open to interpretation and experimentation. Please contact me or use the forum if you struggle with the lab exercises.
 
 We have seen how you can use the NLTK and spaCy libraries for various tasks. You should by now have a fair understanding of word vectorisation (e.g. with TF-IDF) and how POS tags come in handy for processing text in general. The tasks in this lab will focus on these topics (details will be in their respective sections):
 
@@ -29,6 +29,7 @@ For usage of scikit-learn, see these examples:
 
 - <https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html>
 - <https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_text_feature_extraction.html>
+
 
 # Part 1: Exercise questions
 ## 1. POS chunking
@@ -113,3 +114,7 @@ The basics are, as always, prepared in `lab3.py` under `your_implementations`.
 
 - Multi-word prediction (e.g. by clever usage of POS-chunking or dependency parsing)
 - A more sophisticated language model (if you wish to experiment with neural networks, that's fine too!)
+
+
+# Lab notes and feedback
+As a final part of the lab, I want you to briefly discuss your approach to the implementation task. This could be things you had to learn, difficult parts of the lab, etc.
