@@ -42,7 +42,7 @@ Updates:
 | - | - | - | - | - | - | - | - |
 | 1 | [Lab1](exercises/LAB_1.pdf) | Jan. 10 | Jan. 30 | Tokenization, introduction to word vectors and language modeling | Next-word prediction | NLTK | 2, 3 |
 | 2 | [Lab2](exercises/LAB_2.pdf)| Jan. 27 | Feb. 13 | Part-of-speech tagging, stemming/lemmatization, TF-IDF | Utilize part-of-speech for predictions | NLTK, spaCy | 4, 5, 6 |
-| 3 | | Feb. 10 | Feb. 27 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
+| 3 | [Lab3](exercises/LAB_3.pdf)| Feb. 10 | Feb. 27 | Wordnet and SentiWordNet, dependency parsing, POS chunking | Sentiment-based and multi-word predictions | spaCy, Scikit-learn | 7, 8 |
 | 4 | | Feb. 24 | Mar. 13 | Unsupervised topic modeling and named entities | Topic-aware predictions | Scikit-learn, Gensim | 9, 10 |
 
 > Note that you can find some useful tips from last year's course here: https://github.com/tollefj/TDT4310-2022
