@@ -77,8 +77,11 @@ Solve the following tasks:
 - You can select between two data sources based on your preferences.
     - [SIMPLE] Twitter samples. ~20k tweets (binary classification)
         - <https://www.nltk.org/howto/twitter.html#Using-a-Tweet-Corpus>
-    - [ADVANCED] Sentiment140. ~1.6 million tweets (fine-grained)
-        - <http://help.sentiment140.com/for-students>
+    - [ADVANCED] Amazon Reviews with 1-5 star ratings (fine-grained).
+        - A subset of the very large Amazon review corpus (total 55 GB). The provided data is 50 MB (96834 reviews), and only considers the "major appliances" category.
+        - The file can be found under [`data/amazon_reviews`](/data/amazon_reviews/). Make sure to update your repository!
+        - Feel free to download more data and change up the processing pipeline to suit your needs (e.g. if you wish to create a language model based on review data)
+            - <https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset>
 
 Requirements:
 
