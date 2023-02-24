@@ -5,7 +5,7 @@ The last lab of the course! Here, we will cover the book's final chapters (don't
 
 ### Setup
 
-For the topic modeling task, you will need Gensim installed. You may also want to visualize using pyLDAvis. You can install these with:
+For the topic modeling task, you will need Gensim installed. You may also want to visualize using pyLDAvis. You can install these with the following:
 ```python
 pip install gensim
 pip install pyldavis
@@ -21,7 +21,7 @@ Please refer to the documentation for more information:
 
 1. What is the difference between supervised and unsupervised learning? Discuss some benefits and issues for each approach in the context of topic analysis.
 
-2. You are given a corpus of 1 million documents and a vocabulary of 100,000 words. List some problems that you may encounter when using TF-IDF vectorization for clustering this corpus, and explain how you would deal with them.
+2. You are given a corpus of 1 million documents and a vocabulary of 100,000 words. List some problems you may encounter when using TF-IDF vectorization for clustering this corpus, and explain how you would deal with them.
 
 3. Metrics are essential when dealing with machine learning. However, regarding unsupervised clustering (e.g., of topics), we cannot use the typical precision, recall, and f-measure metrics. What are the alternatives for this task?
 
@@ -45,16 +45,16 @@ Given the five sentences:
 2. Two algorithms for topic discovery are Latent Semantic Indexing (LSI) and Latent Dirichlet Allocation (LDA)
 - What preprocessing steps should we consider before implementing these algorithms?
 
-- Both require the user to specify the number of topic clusters. How can we *automatically* detect a reasonable number of topics? This is related to metrics for unsupervised clustering.
+- Both algorithms require the user to specify the number of topic clusters. How can we *automatically* detect a reasonable number of topics? Tip: Look into metrics for unsupervised clustering.
 
-3. Using the corpus provided in Lab 3, `amazon_appliances_reviews`, implement an LSI and LDA model using Gensim. Specify 5 topics and print out the top 10 words for each topic. The package `pyLDAvis` will help you to visualize the topics!
+3. Using the corpus from Lab 3: `amazon_appliances_reviews`, implement an LSI and LDA model using Gensim. Specify 5 topics and print out the top 10 words for each topic. The package `pyLDAvis` will help you to visualize the topics!
   - Which algorithm do you think is more accurate? Why?
   - How do the topics compare to your interpretations? In your opinion, are there more or less than 5 *actual* topics?
 
 ## Named Entity Recognition
 (pages 384-392, 403-415)
 
-1. In Lab 3, you learned about noun phrases. Noun phrases are typically named entities, such as "The quick brown fox" or "Mount Everest". Give examples of named entity categories that are typically *not* noun phrases.
+1. In Lab 3, you learned about noun phrases. Noun phrases, such as "The quick brown fox" or "Mount Everest", are often considered named entities. Give examples of named entity categories that are *not* noun phrases.
 2. Disambiguating (or entity linking) named entities is a crucial task to applications of NER and considers the problem of assigning an identifier to each entity, i.e., *linking* relevant entities together. The disambiguation process often incorporates external knowledge (*knowledge bases*).
     
     Consider the sentences:
@@ -68,11 +68,11 @@ Given the five sentences:
     How would you tackle the task of distinguishing the entities found here? Give a rough step-by-step explanation, either in text or by pseudo-code — no implementation required.
 
 ## Finishing the labs
-As a final part, please answer the following: (short answers are fine!)
+As a final part, please answer the following: (short answers are OK!)
 
-- Was the setup of the lab environment too difficult?
+- Was the setup of the lab environment complicated?
 
-- Was the keyboard implementation of the labs useful or any fun at all? Scrap it?
+- Was the keyboard implementation of the labs practical or any fun at all? Remove it?
 
 - Do you prefer the labs to be theoretical or practical?
 
